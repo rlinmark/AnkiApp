@@ -1,4 +1,11 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+  Switch
+} from 'react-router-dom'
 import AnkiCardDashboard from './components/AnkiCardDashboard'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -43,7 +50,13 @@ class App extends Component {
 
   render() {
     return (
-      <AnkiCardDashboard cards={this.state.cards} />
+      <Router>
+        <Switch>
+          <Route path='/cards-list' render={() => <AnkiCardDashboard cards={this.state.cards} />} />
+          
+          <Route exact path="/" render={() => (<Redirect to='/cards-list' />)} />
+        </Switch>
+      </Router>
     );
   }
 }
