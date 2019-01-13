@@ -12,3 +12,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.anki-card {
+  width: 200px;
+}
+
+.anki-card-list > li {
+  display: inline-block;
+  margin-right: 10px;
+}
